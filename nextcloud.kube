@@ -3,7 +3,7 @@ Description=Quadlet that starts the nextcloud pod
 
 [Kube]
 AutoUpdate=registry
-Yaml=/droppi/nextcloud/nextcloud.yaml
+Yaml=%h/podman-nextcloud/nextcloud.yaml
 SetWorkingDirectory=yaml
 
 [Service]
