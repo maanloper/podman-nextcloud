@@ -15,7 +15,7 @@ spec:
 
   containers:
     - name: maria-db
-      image: docker.io/library/mariadb:10
+      image: docker.io/library/mariadb:latest
       args:
         - --transaction-isolation=READ-COMMITTED
         - --log-bin=binlog
@@ -67,28 +67,28 @@ spec:
           name: nextcloud_html
         - mountPath: /data
           name: nextcloud_caddy_data
-        - mountPath: /etc/caddy/Caddyfile
-          name: nextcloud_caddyfile
+        - mountPath: /etc/caddy
+          name: nextcloud_caddy_conf
 
   volumes:
     - hostPath:
-        path: caddy/caddy_data
+        path: /droppi/nextcloud/caddy/caddy_data
         type: Directory
       name: nextcloud_caddy_data
     - hostPath:
-        path: caddy/Caddyfile
-        type: File
-      name: nextcloud_caddyfile
+        path: /droppi/nextcloud/caddy/conf
+        type: Directory
+      name: nextcloud_caddy_conf
     - hostPath:
-        path: db
+        path: /droppi/nextcloud/mariadb
         type: Directory
       name: nextcloud_db
     - hostPath:
-        path: html
+        path: /droppi/nextcloud/html
         type: Directory
       name: nextcloud_html
     - hostPath:
-        path: data
+        path: /droppi/nextcloud/data
         type: Directory
       name: nextcloud_data
 status: {}
