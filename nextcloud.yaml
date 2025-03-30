@@ -72,7 +72,7 @@ spec:
 
   volumes:
     - hostPath:
-        path: /droppi/nextcloud/caddy/caddy_data
+        path: /droppi/nextcloud/caddy/data
         type: Directory
       name: nextcloud_caddy_data
     - hostPath:
